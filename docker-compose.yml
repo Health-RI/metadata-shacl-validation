@@ -7,5 +7,5 @@ services:
             - ./validator/resources:/validator/resources
         environment:
             - validator_resourceRoot=/validator/resources/
-            - validator_domain=fdp
-            - validator_domainName_fdp=fdp
+            - validator_domain=healthri
+            - validator_domainName_healthri=healthri
