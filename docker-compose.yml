@@ -1,0 +1,11 @@
+services:
+    itb:
+        image: "isaitb/shacl-validator:latest"
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./validator/resources:/validator/resources
+        environment:
+            - validator_resourceRoot=/validator/resources/
+            - validator_domain=fdp
+            - validator_domainName_fdp=fdp
