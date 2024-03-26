@@ -21,7 +21,7 @@ after a couple of minutes.
 
 ## Adding new shapes
 
-Adding new shapes requires two things: SHACl shapes in *turtle* format, and updating the
+Adding new shapes requires two things: SHACL shapes in *turtle* format, and updating the
 *config.properties* file to add in a new profile.
 
 The shapes can be placed in the *shapes* folder or a subfolder thereof.
@@ -29,7 +29,7 @@ The shapes can be placed in the *shapes* folder or a subfolder thereof.
 To add the new profile, edit *config.properties* file. At the first line, add a new profile to the
 `validator.type` line. Then, add two lines: `validator.typeLabel.<your profile> = <profile description>`
 is the title that would appear in the drop down menu.
-`validator.shaclFile.<yourprofile> = shapes/<your file>, shapes/<your file 2>` you can add SHACl shapes,
+`validator.shaclFile.<yourprofile> = shapes/<your file>, shapes/<your file 2>` you can add SHACL shapes,
 comma-separated.
 
 It's recommended to test locally using above *docker compose*, before making your pull request.
