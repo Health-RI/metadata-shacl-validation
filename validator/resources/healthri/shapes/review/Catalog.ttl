@@ -35,7 +35,7 @@
    sh:minCount 0 ;
   ],
   [
-    sh:path <http://www.w3.org/ns/dcat#Service> ;
+    sh:path <http://www.w3.org/ns/dcat#service> ;
     sh:class dcat:DataService ;
     sh:minCount 0 ;
   ] .
