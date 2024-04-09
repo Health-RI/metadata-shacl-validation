@@ -1,0 +1,120 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix core: <http://coreRule-healthri.nl#> .
+@prefix : <http://coreRule-healthri.nl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+
+:DatasetSeriesShape a sh:NodeShape ;
+  sh:targetClass dcat:DatasetSeries ;
+  sh:property 
+  [
+            sh:path <http://www.w3.org/ns/dcat#contactPoint> ;
+            sh:class vcard:Kind ;
+            sh:minCount 1 ;
+            sh:name "Contact point" ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer ;
+],
+[
+            sh:path <http://purl.org/dc/terms/creator> ;
+            sh:datatype sh:IRI ;
+            sh:class foaf:Agent ;
+            sh:minCount 1 ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer ;
+],
+[
+            sh:path <http://purl.org/dc/terms/title> ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+],
+[
+             sh:path <http://purl.org/dc/terms/description> ;
+             sh:nodeKind sh:Literal ;
+             sh:datatype xsd:string ;
+             sh:minCount 1 ;
+],
+[
+            sh:path <http://purl.org/dc/terms/identifier> ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+],
+[
+            sh:path <http://purl.org/dc/terms/issued> ;
+            sh:datatype xsd:dateTime ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            dash:editor dash:DatePickerEditor ;
+            dash:viewer dash:LiteralViewer ;
+],
+[
+            sh:path <http://purl.org/dc/terms/license> ;
+            sh:datatype sh:IRI ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;    
+],
+[
+            sh:path <http://purl.org/dc/terms/modified> ;
+            sh:datatype xsd:dateTime ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            dash:editor dash:DatePickerEditor ;
+            dash:viewer dash:LiteralViewer ;
+],
+[
+            sh:path <http://purl.org/dc/terms/publisher> ;
+            sh:class foaf:Agent ;
+            sh:datatype sh:IRI ;
+            sh:minCount 1 ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer ;
+],
+[
+            sh:path <http://www.w3.org/ns/dcat#theme> ;
+#            sh:class skos:ConceptScheme ;
+            sh:datatype sh:IRI ;
+            sh:minCount 1 ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer ;
+],
+[
+            sh:path <http://purl.org/dc/terms/type> ;
+#            sh:class skos:Concept ;
+            sh:datatype sh:IRI ;
+            sh:minCount 1 ;
+],
+[
+            sh:path <http://www.w3.org/ns/dcat#distribution> ;
+            sh:class dcat:Distribution ;
+            sh:minCount 0 ;
+],
+[
+            sh:path <http://purl.org/dc/terms/relation> ;
+            sh:datatype sh:IRI ;
+            sh:class foaf:Project ;
+            sh:minCount 0 ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer ;
+],
+[
+            sh:path <http://www.w3.org/ns/dcat#hasVersion> ;
+           
+            sh:datatype xsd:string ;
+            sh:minCount 0 ;
+            sh:name "Has Version" ;
+            dash:editor dash:URIEditor ;
+            dash:viewer dash:LabelViewer 
+].

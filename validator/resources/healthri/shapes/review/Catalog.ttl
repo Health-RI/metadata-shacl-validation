@@ -1,0 +1,41 @@
+@prefix :         <http://fairdatapoint.org/> .
+@prefix dash:     <http://datashapes.org/dash#> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+:CatalogShape a sh:NodeShape ;
+  sh:targetClass dcat:Catalog ;
+  sh:property 
+ [
+    sh:path <http://www.w3.org/ns/dcat#dataset> ;
+    sh:class dcat:Dataset ;
+    sh:minCount 0 ;
+  ] ,
+ [
+    sh:path <http://purl.org/dc/terms/description> ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+   ], 
+  [
+    sh:path <http://purl.org/dc/terms/publisher> ;
+    sh:class foaf:Agent ;
+    sh:minCount 1 ;
+  ] ,
+  [
+    sh:path <http://purl.org/dc/terms/title> ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+  ], 
+  [
+   sh:path <http://www.w3.org/ns/dcat#catalog> ;
+   sh:class dcat:Catalog ;
+   sh:minCount 0 ;
+  ],
+  [
+    sh:path <http://www.w3.org/ns/dcat#Service> ;
+    sh:class dcat:DataService ;
+    sh:minCount 0 ;
+  ] .
