@@ -28,9 +28,9 @@
 [
             sh:path <http://purl.org/dc/terms/creator> ;
             sh:datatype sh:IRI ;
-            sh:class foaf:Agent ;
+          sh:class foaf:Agent ;
             sh:minCount 1 ;
-            dash:editor dash:URIEditor ;
+          dash:editor dash:URIEditor ;
             dash:viewer dash:LabelViewer ;
 ],
 [
@@ -42,15 +42,15 @@
 [
              sh:path <http://purl.org/dc/terms/description> ;
              sh:nodeKind sh:Literal ;
-             sh:datatype xsd:string ;
+       sh:datatype xsd:string ;
              sh:minCount 1 ;
 ],
 [
             sh:path <http://purl.org/dc/terms/identifier> ;
             sh:nodeKind sh:Literal ;
-            sh:datatype xsd:string ;
+      sh:datatype xsd:string ;
             sh:minCount 1 ;
-            sh:maxCount 1 ;
+          sh:maxCount 1 ;
 ],
 [
             sh:path <http://purl.org/dc/terms/issued> ;
@@ -62,7 +62,7 @@
 ],
 [
             sh:path <http://purl.org/dc/terms/license> ;
-            sh:datatype sh:IRI ;
+      sh:datatype sh:IRI ;
             sh:minCount 1 ;
             sh:maxCount 1 ;    
 ],
@@ -112,7 +112,7 @@
 [
             sh:path <http://www.w3.org/ns/dcat#hasVersion> ;
            
-            sh:datatype xsd:string ;
+      sh:datatype xsd:string ;
             sh:minCount 0 ;
             sh:name "Has Version" ;
             dash:editor dash:URIEditor ;
