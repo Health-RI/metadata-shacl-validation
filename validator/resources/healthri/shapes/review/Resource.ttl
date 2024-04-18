@@ -50,10 +50,13 @@
         sh:path dct:conformsTo ;
         sh:severity sh:Violation
     ],
-[
-        sh:path dcat:contactPoint ;
-        sh:severity sh:Violation
-    ],
+[ 
+	dash:editor  dash:URIEditor;
+        dash:viewer  dash:LabelViewer;
+        sh:maxCount  1;
+        sh:nodeKind  sh:IRI;
+        sh:path      dcat:contactPoint
+],
 [
         sh:path dct:creator ;
         sh:severity sh:Violation
@@ -86,13 +89,12 @@
 [
         sh:path dct:language ;
         sh:severity sh:Violation
-    ],
-[
-        sh:maxCount 1 ;
-        sh:minCount 1 ;
-        sh:path dct:publisher ;
-        sh:severity sh:Violation
-    ],
+    ],	
+[ 		dash:editor  dash:BlankNodeEditor;
+        sh:node      :AgentShape;
+        sh:path      dct:publisher
+  ],
+  
 [
         sh:nodeKind sh:Literal ;
         sh:path dct:identifier ;
@@ -129,11 +131,13 @@
         sh:path prov:qualifiedAttribution ;
         sh:severity sh:Violation
     ], 
-[
-        sh:maxCount 1 ;
-        sh:path dct:license ;
-        sh:severity sh:Violation
-    ],
+[ 
+	dash:editor  dash:URIEditor;
+        dash:viewer  dash:LabelViewer;
+        sh:maxCount  1;
+        sh:nodeKind  sh:IRI;
+        sh:path      dct:license
+],
 [
         sh:maxCount 1 ;
         sh:path dct:rights ;

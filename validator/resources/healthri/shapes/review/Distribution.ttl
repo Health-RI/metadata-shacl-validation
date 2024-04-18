@@ -17,8 +17,6 @@ sh:property
     sh:path dcat:mediaType ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
-    #dash:editor dash:TextFieldEditor ;
-    #dash:viewer dash:LiteralViewer ;
 ] ,
 [
      sh:path <http://purl.org/dc/terms/title> ;

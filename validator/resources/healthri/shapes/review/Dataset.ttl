@@ -13,6 +13,7 @@
 @prefix core: <http://coreRule-healthri.nl#> .
 @prefix : <http://coreRule-healthri.nl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://www.w3.org/2006/vcard/ns#> .
 
 :DatasetShape a sh:NodeShape ;
   sh:targetClass dcat:Dataset ;
@@ -20,29 +21,33 @@
   [
             sh:path <http://www.w3.org/ns/dcat#contactPoint> ;
             sh:class vcard:Kind ;
-            sh:minCount 1 ;
+            sh:maxCount 1 ;
             sh:name "Contact point" ;
             dash:editor dash:URIEditor ;
             dash:viewer dash:LabelViewer ;
+	    sh:nodeKind  sh:IRI;
 ],
+
 [
             sh:path <http://purl.org/dc/terms/creator> ;
-        sh:class foaf:Agent ;
+        sh:node foaf:Agent ;
+		#sh:class foaf:Agent
+		#sh:class ns1:VCard ;
             sh:minCount 1 ;
         dash:editor dash:URIEditor ;
             dash:viewer dash:LabelViewer ;
 ],
 [
             sh:path <http://purl.org/dc/terms/title> ;
-            #sh:nodeKind sh:Literal ;
-            sh:datatype rdfs:Literal; #xsd:string ;
+            sh:nodeKind sh:Literal ;
+            #sh:datatype rdfs:Literal; #xsd:string ;
             sh:minCount 1 ;
 ],
-[
-             sh:path <http://purl.org/dc/terms/description> ;
-             #sh:nodeKind sh:Literal ;
-            sh:datatype rdfs:Literal; #xsd:string ;
-             sh:minCount 1 ;
+[ 
+			dash:editor  dash:TextAreaEditor;
+            sh:maxCount  1;
+            sh:nodeKind  sh:Literal;
+            sh:path      dct:description
 ],
 [
             sh:path <http://purl.org/dc/terms/identifier> ;
@@ -59,41 +64,34 @@
             dash:editor dash:DatePickerEditor ;
             dash:viewer dash:LiteralViewer ;
 ],
-[
-            sh:path <http://purl.org/dc/terms/license> ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;    
+[ 	dash:editor  dash:URIEditor;
+        dash:viewer  dash:LabelViewer;
+        sh:maxCount  1;
+        sh:nodeKind  sh:IRI;
+        sh:path      dct:license
 ],
 [
             sh:path <http://purl.org/dc/terms/modified> ;
             sh:datatype xsd:dateTime ;
-            sh:minCount 1 ;
+            #sh:minCount 1 ;
             sh:maxCount 1 ;
             dash:editor dash:DatePickerEditor ;
             dash:viewer dash:LiteralViewer ;
 ],
-[
-            sh:path <http://purl.org/dc/terms/publisher> ;
-            sh:class foaf:Agent ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
+[ dash:editor  dash:BlankNodeEditor;
+                          sh:node      :AgentShape;
+                          sh:path      dct:publisher
 ],
 [
             sh:path <http://www.w3.org/ns/dcat#theme> ;
-            #sh:class skos:ConceptScheme ;
-            sh:datatype sh:IRI ;
+			sh:nodeKind sh:IRI ;
             sh:minCount 1 ;
             dash:editor dash:URIEditor ;
             dash:viewer dash:LabelViewer ;
 ],
 [
             sh:path <http://purl.org/dc/terms/type> ;
-            #sh:class skos:Concept ;
             sh:datatype sh:IRI ;
-            sh:minCount 1 ;
 ],
 [
             sh:path <http://www.w3.org/ns/dcat#distribution> ;
@@ -110,8 +108,7 @@
 ],
 [
             sh:path <http://www.w3.org/ns/dcat#version> ;
-            #sh:nodeKind sh:Literal ;
-            sh:datatype rdfs:Literal ; #xsd:string ;
+            sh:datatype rdfs:Literal ;
             sh:minCount 0 ;
             sh:name "Has Version" ;
             dash:editor dash:URIEditor ;

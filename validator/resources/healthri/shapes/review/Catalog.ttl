@@ -19,14 +19,14 @@
     sh:datatype xsd:string ;
     sh:minCount 1 ;
    ], 
-  [
-    sh:path <http://purl.org/dc/terms/publisher> ;
-    sh:class foaf:Agent ;
-    sh:minCount 1 ;
-  ] ,
+  [ 
+  dash:editor  dash:BlankNodeEditor;
+    sh:node      :AgentShape;
+    sh:path      dct:publisher
+  ],
   [
     sh:path <http://purl.org/dc/terms/title> ;
-  sh:datatype xsd:string ;
+	sh:datatype xsd:string ;
     sh:minCount 1 ;
   ], 
   [
@@ -39,3 +39,15 @@
     sh:class dcat:DataService ;
     sh:minCount 0 ;
   ] .
+  
+  
+  :AgentShape  a   sh:NodeShape;
+        sh:property     
+		[ 
+		dash:editor  dash:TextFieldEditor;
+        sh:maxCount  1;
+        sh:minCount  1;
+        sh:nodeKind  sh:Literal;
+        sh:path      foaf:name
+       ];
+       sh:targetClass  foaf:Agent .
