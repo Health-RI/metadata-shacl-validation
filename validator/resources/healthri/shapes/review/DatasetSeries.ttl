@@ -24,10 +24,11 @@
             sh:name "Contact point" ;
             dash:editor dash:URIEditor ;
             dash:viewer dash:LabelViewer ;
+	    sh:nodeKind  sh:IRI;
 ],
 [
             sh:path <http://purl.org/dc/terms/creator> ;
-            sh:datatype sh:IRI ;
+            #sh:datatype sh:IRI ;
           sh:class foaf:Agent ;
             sh:minCount 1 ;
           dash:editor dash:URIEditor ;
@@ -60,31 +61,28 @@
             dash:editor dash:DatePickerEditor ;
             dash:viewer dash:LiteralViewer ;
 ],
-[
-            sh:path <http://purl.org/dc/terms/license> ;
-      sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;    
+[ 
+	dash:editor  dash:URIEditor;
+        dash:viewer  dash:LabelViewer;
+        sh:maxCount  1;
+        sh:nodeKind  sh:IRI;
+        sh:path      dct:license
 ],
 [
             sh:path <http://purl.org/dc/terms/modified> ;
             sh:datatype xsd:dateTime ;
-            sh:minCount 1 ;
+            #sh:minCount 1 ;
             sh:maxCount 1 ;
             dash:editor dash:DatePickerEditor ;
             dash:viewer dash:LiteralViewer ;
 ],
-[
-            sh:path <http://purl.org/dc/terms/publisher> ;
-            sh:class foaf:Agent ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
+[ 
+			dash:editor  dash:BlankNodeEditor;
+            sh:node      :AgentShape;
+            sh:path      dct:publisher
+  ],
 [
             sh:path <http://www.w3.org/ns/dcat#theme> ;
-#            sh:class skos:ConceptScheme ;
             sh:datatype sh:IRI ;
             sh:minCount 1 ;
             dash:editor dash:URIEditor ;
@@ -92,7 +90,6 @@
 ],
 [
             sh:path <http://purl.org/dc/terms/type> ;
-#            sh:class skos:Concept ;
             sh:datatype sh:IRI ;
             sh:minCount 1 ;
 ],
