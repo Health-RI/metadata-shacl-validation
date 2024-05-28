@@ -26,10 +26,10 @@
   ],
   [
     sh:path dct:creator ;
-    sh:node :AgentShape ;
+	sh:node foaf:Agent ;
     sh:minCount 1 ;
-    dash:editor dash:BlankNodeEditor ;
-    dash:viewer dash:DetailsViewer ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
   ],
   [
     sh:path dct:title ;
