@@ -9,119 +9,127 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix vcard: <http://www.w3.org/2006/vcard#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix core: <http://coreRule-healthri.nl#> .
 @prefix : <http://coreRule-healthri.nl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 
 :DatasetShape a sh:NodeShape ;
   sh:targetClass dcat:Dataset ;
-  sh:property 
+  sh:property [
+    sh:path dcat:contactPoint ;
+    sh:class vcard:Kind ;
+    sh:maxCount 1 ;
+    sh:name "Contact point" ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ],
   [
-            sh:path <http://www.w3.org/ns/dcat#contactPoint> ;
-            sh:class vcard:Kind ;
-            sh:minCount 1 ;
-            sh:name "Contact point" ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
-[
-            sh:path <http://purl.org/dc/terms/creator> ;
-        sh:class foaf:Agent ;
-            sh:minCount 1 ;
-        dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
-[
-            sh:path <http://purl.org/dc/terms/title> ;
-            sh:nodeKind sh:Literal ;
-            sh:datatype xsd:string ;
-            sh:minCount 1 ;
-],
-[
-             sh:path <http://purl.org/dc/terms/description> ;
-             sh:nodeKind sh:Literal ;
-         sh:datatype xsd:string ;
-             sh:minCount 1 ;
-],
-[
-            sh:path <http://purl.org/dc/terms/identifier> ;
-            sh:nodeKind sh:Literal ;
-        sh:datatype xsd:string ;
-            sh:minCount 1 ;
-        sh:maxCount 1 ;
-],
-[
-            sh:path <http://purl.org/dc/terms/issued> ;
-            sh:datatype xsd:dateTime ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-            dash:editor dash:DatePickerEditor ;
-            dash:viewer dash:LiteralViewer ;
-],
-[
-            sh:path <http://purl.org/dc/terms/license> ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;    
-],
-[
-            sh:path <http://purl.org/dc/terms/modified> ;
-            sh:datatype xsd:dateTime ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-            dash:editor dash:DatePickerEditor ;
-            dash:viewer dash:LiteralViewer ;
-],
-[
-            sh:path <http://purl.org/dc/terms/publisher> ;
-            sh:class foaf:Agent ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
-[
-            sh:path <http://www.w3.org/ns/dcat#theme> ;
-            #sh:class skos:ConceptScheme ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
-[
-            sh:path <http://purl.org/dc/terms/type> ;
-            #sh:class skos:Concept ;
-            sh:datatype sh:IRI ;
-            sh:minCount 1 ;
-],
-[
-            sh:path <http://www.w3.org/ns/dcat#distribution> ;
-            sh:class dcat:Distribution ;
-            sh:minCount 0 ;
-],
-[
-            sh:path <http://purl.org/dc/terms/relation> ;
-            sh:datatype sh:IRI ;
-            sh:class foaf:Project ;
-            sh:minCount 0 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-],
-[
-            sh:path <http://www.w3.org/ns/dcat#hasVersion> ;
-            sh:nodeKind sh:LiteralOrIRI ;
-            sh:datatype xsd:string ;
-            sh:minCount 0 ;
-            sh:name "Has Version" ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer 
-] ,
-[
-            sh:path dcat:inSeries ;
-            sh:datatype sh:IRI ;
-            sh:class dcat:DatasetSeries ;
-            sh:minCount 0 ;
-            dash:editor dash:URIEditor ;
-            dash:viewer dash:LabelViewer ;
-] .
+    sh:path dct:creator ;
+    sh:node :AgentShape ;
+    sh:minCount 1 ;
+    dash:editor dash:BlankNodeEditor ;
+    dash:viewer dash:DetailsViewer ;
+  ],
+  [
+    sh:path dct:title ;
+	sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
+  ],
+  [
+    sh:path dct:description ;
+    sh:datatype xsd:string ;
+	sh:nodeKind  sh:Literal;
+    sh:maxCount 1 ;
+    sh:uniqueLang true ;
+  ],
+  [
+    sh:path dct:identifier ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ],
+  [
+    sh:path dct:issued ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dash:editor dash:DatePickerEditor ;
+    dash:viewer dash:LiteralViewer ;
+  ],
+  [
+    sh:path dct:license ;
+    sh:nodeKind sh:IRI ;
+    #sh:minCount 1 ;
+    sh:maxCount 1 ;    
+  ],
+  [
+    sh:path dct:modified ;
+    sh:datatype xsd:dateTime ;
+    #sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dash:editor dash:DatePickerEditor ;
+    dash:viewer dash:LiteralViewer ;
+  ],
+  [
+    sh:path dct:publisher ;
+    sh:node :AgentShape ;
+    #sh:nodeKind sh:IRI ;
+    #sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ],
+  [
+    sh:path dcat:theme ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ],
+  [
+    sh:path dct:type ;
+    sh:nodeKind sh:IRI ;
+    #sh:minCount 1 ;
+  ],
+  [
+    sh:path dcat:distribution ;
+    sh:class dcat:Distribution ;
+	#sh:minCount 0 ;
+  ],
+  [
+    sh:path dct:relation ;
+    sh:nodeKind sh:IRI ;
+    sh:class foaf:Project ;
+	#sh:minCount 0 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ],
+  [
+    sh:path dcat:version ;
+    sh:nodeKind sh:Literal ;
+    #sh:minCount 0 ; #TBD
+    sh:name "Has Version" ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer 
+  ] ,
+  [
+    sh:path dcat:inSeries ;
+    sh:nodeKind sh:IRI ;
+    sh:class dcat:DatasetSeries ;
+	#sh:minCount 0 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ] .
+
+:AgentShape a sh:NodeShape;
+  sh:property     
+  [ 
+    dash:editor dash:TextFieldEditor ;
+    dash:viewer dash:LiteralViewer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:path foaf:name ;
+  ] ;
+  sh:targetClass foaf:Agent .
