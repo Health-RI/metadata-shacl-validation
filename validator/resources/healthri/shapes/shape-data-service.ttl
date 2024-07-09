@@ -1,20 +1,36 @@
-@prefix :         <http://fairdatapoint.org/> .
-@prefix dash:     <http://datashapes.org/dash#> .
-@prefix dcat:     <http://www.w3.org/ns/dcat#> .
-@prefix dct:      <http://purl.org/dc/terms/> .
-@prefix sh:       <http://www.w3.org/ns/shacl#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix :  <http://fairdatapoint.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dash: <http://datashapes.org/dash#> .
+
 
 :DataServiceShape a sh:NodeShape ;
   sh:targetClass dcat:DataService ;
   sh:property [
     sh:path dcat:endpointURL ;
     sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-  ] , [
-    sh:path dcat:endpointDescription ;
+    sh:minCount 1 ;
+    sh:name "Endpoint URL" ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:URIViewer ;
+  ],
+  [
+    sh:path dct:title ;
     sh:nodeKind sh:Literal ;
-    sh:maxCount 1 ;
-    dash:editor dash:TextAreaEditor ;
+    dash:editor dash:TextFieldEditor ;
     dash:viewer dash:LiteralViewer ;
+    sh:minCount 1 ;
+  ],
+  [
+    sh:path dcat:endpointDescription ;
+    sh:nodeKind sh:IRI ;
+    dash:viewer dash:URIViewer ;
+    dash:editor dash:URIEditor ;
+  ],
+  [
+    sh:path dcat:servesDataset ;
+    sh:nodeKind sh:IRI ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:URIViewer ;
   ] .
