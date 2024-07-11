@@ -8,44 +8,44 @@
 :DistributionShape a sh:NodeShape ;
   sh:targetClass dcat:Distribution ;
   sh:property [
-    sh:path dct:issued ;
-    sh:datatype xsd:dateTime ;
-    sh:maxCount 1 ;
-    dash:editor dash:DatePickerEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dct:modified ;
-    sh:datatype xsd:dateTime ;
-    sh:maxCount 1 ;
-    dash:editor dash:DatePickerEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
     sh:path dcat:accessURL ;
     sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-  ], [
-    sh:path dcat:downloadURL ;
-    sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-  ], [
-    sh:path dcat:mediaType ;
-    sh:nodeKind sh:Literal ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
+    dash:viewer dash:URIViewer ;
+    dash:editor dash:URIEditor ;
+  ],
+  [
+    sh:path dcat:mediaType ;
+    sh:nodeKind sh:IRI ; 
+    sh:minCount 1 ;
     dash:editor dash:TextFieldEditor ;
     dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dcat:format ;
-    sh:nodeKind sh:Literal ;
-    sh:maxCount 1 ;
-    dash:editor dash:TextFieldEditor ;
+  ] ,
+  [
+    sh:path dct:title ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
     dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dcat:byteSize ;
-    sh:nodeKind sh:Literal ;
-    sh:maxCount 1 ;
     dash:editor dash:TextFieldEditor ;
+  ] ,
+  [
+    sh:path dct:description ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:uniqueLang true ;
     dash:viewer dash:LiteralViewer ;
+    dash:editor dash:TextFieldEditor ;
+  ] ,
+  [
+    sh:path dcat:accessService ;
+    sh:class dcat:DataService ;
+    #sh:minCount 0 ;
+  ] ,
+  [
+    sh:path dcat:downloadURL ;
+    sh:nodeKind sh:IRI ; 
+    #sh:minCount 0 ;
+    dash:viewer dash:URIViewer ;
+    dash:editor dash:URIEditor ;
   ] .
