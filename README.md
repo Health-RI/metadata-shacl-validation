@@ -10,7 +10,9 @@ The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthr
 
 Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/healthri/upload>.
 
-Currently there is one profile (v.1.0.0). This profile will validate against the v1.0.0 release shacls. The scales are retrieved from github datamodel repository.
+Currently there are two profiles v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release shacls, 
+development will validate against development, note: development can contains errors, so use with care!.
+The shacles are retrieved from github datamodel repository.
 
 ## Updating existing shapes
 
@@ -19,9 +21,9 @@ Updating is not needed anymore, the shacl are retrieved from github datamodel re
 ## Adding new shapes
 
 
-To add the new version/profile, edit *config.properties* file. At the first line, add a new profile to the
+To add a new version/profile, edit *config.properties* file. At the first line, add a new profile to the
 `validator.type` line. Then, add two lines: `validator.typeLabel.<your profile> = <profile description>`
-is the title that would appear in the drop down menu.
+this is the title that would appear in the drop down menu.
 `validator.shaclFile.<your profile>.remote.<#>.url = http://..... and 
 `validator.shaclFile.<your profile>.remote.<#>.type = text/turtle
 
