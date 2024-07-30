@@ -4,19 +4,19 @@
 
 This repository is used to provide SHACL shapes to verify Health-RI and FAIR Data Point RDF files.
 
-The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthri/upload>.
+The validator itself is available at <https://www.itb.ec.europa.eu/SHACL/healthri/upload>.
 
 ## Development
 
 Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/healthri/upload>.
 
-Currently there are two profiles v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release shacls, 
-development will validate against development, note: development can contains errors, so use with care!.
-The shacles are retrieved from github datamodel repository.
+Currently there are two profiles: v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release SHACLs, 
+development will validate against the latest development version. Note: development can contains errors, so use with care!
+The SHACLs are retrieved from the github datamodel repository.
 
 ## Updating existing shapes
 
-Updating is not needed anymore, the shacl are retrieved from github datamodel repository.
+Updating is not needed anymore, the SHACLs are retrieved from github datamodel repository.
 
 ## Adding new shapes
 
