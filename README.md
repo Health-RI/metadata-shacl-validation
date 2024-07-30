@@ -10,24 +10,24 @@ The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthr
 
 Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/healthri/upload>.
 
-Currently there are two profiles v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release shacls, 
-development will validate against development, note: development can contains errors, so use with care!.
-The shacles are retrieved from github datamodel repository.
+Currently there are two profiles: v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release SHACLs, 
+development will validate against the latest development version. Note: development can contains errors, so use with care!
+The SHACLs are retrieved from the github datamodel repository.
 
 ## Updating existing shapes
 
-Updating is not needed anymore, the shacl are retrieved from github datamodel repository.
+Updating is not needed anymore, the SHACLs are retrieved from github datamodel repository.
 
 ## Adding new shapes
 
 
 To add a new version/profile, edit *config.properties* file. At the first line, add a new profile to the
-`validator.type` line. Then, add two lines: `validator.typeLabel.<your profile> = <profile description>`
-this is the title that would appear in the drop down menu.
-`validator.shaclFile.<your profile>.remote.<#>.url = http://..... and 
-`validator.shaclFile.<your profile>.remote.<#>.type = text/turtle
+`validator.type` line. Then, add `validator.typeLabel.<your profile> = <profile description>`
+this is the title that would appear in the drop down menu. For every SHACL file add the following lines:
+`validator.shaclFile.<your profile>.remote.<#>.url = http://.....` 
+`validator.shaclFile.<your profile>.remote.<#>.type = text/turtle`
 
-`<#> should be replaced by 0,1,2 etc.. And is the index of the url.  
+`<#>` should be replaced by 0,1,2 etc.. And is the index of the url.  
 
 It's recommended to test locally using above *docker compose*, before making your pull request.
 
