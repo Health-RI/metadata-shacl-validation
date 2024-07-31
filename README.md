@@ -8,29 +8,26 @@ The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthr
 
 ## Development
 
-Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/fdp/upload>.
+Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/healthri/upload>.
 
-Currently there are two profiles. The basic profile will validate against the shapes for `dcat:Resource`,
-the full profile will validate against all shapes.
+Currently there are two profiles: v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release SHACLs, 
+development will validate against the latest development version. Note: development can contains errors, so use with care!
+The SHACLs are retrieved from the github datamodel repository.
 
 ## Updating existing shapes
 
-Updating existing shapes can be done by updating the *.ttl* files in the *shapes* folder. Create
-a pull request for any updates, once merged in the publicly instance will update automatically
-after a couple of minutes.
+Updating is not needed anymore, the SHACLs are retrieved from github datamodel repository.
 
 ## Adding new shapes
 
-Adding new shapes requires two things: SHACL shapes in *turtle* format, and updating the
-*config.properties* file to add in a new profile.
 
-The shapes can be placed in the *shapes* folder or a subfolder thereof.
+To add a new version/profile, edit *config.properties* file. At the first line, add a new profile to the
+`validator.type` line. Then, add `validator.typeLabel.<your profile> = <profile description>`
+this is the title that would appear in the drop down menu. For every SHACL file add the following lines:
+`validator.shaclFile.<your profile>.remote.<#>.url = http://.....` 
+`validator.shaclFile.<your profile>.remote.<#>.type = text/turtle`
 
-To add the new profile, edit *config.properties* file. At the first line, add a new profile to the
-`validator.type` line. Then, add two lines: `validator.typeLabel.<your profile> = <profile description>`
-is the title that would appear in the drop down menu.
-`validator.shaclFile.<yourprofile> = shapes/<your file>, shapes/<your file 2>` you can add SHACL shapes,
-comma-separated.
+`<#>` should be replaced by 0,1,2 etc.. And is the index of the url.  
 
 It's recommended to test locally using above *docker compose*, before making your pull request.
 
