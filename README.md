@@ -10,7 +10,7 @@ The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthr
 
 Run `docker compose build && docker compose up` and a validator will be exposed at <http://localhost:8080/shacl/healthri/upload>.
 
-Currently there are two profiles: v.1.0.0 and development. The v1.0.0. profile will validate against the v1.0.0 release SHACLs, 
+Currently there are three profiles: v1.0.0, v2.0.0 and development. v2.0.0 and v1.0.0. profile will validate against the v1 or v2 releases of the datamodel. Make sure to select the right version! 
 development will validate against the latest development version. Note: development can contains errors, so use with care!
 The SHACLs are retrieved from the github datamodel repository.
 
