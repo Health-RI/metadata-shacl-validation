@@ -1,10 +1,10 @@
 # Health-RI Metadata model SHACL validation
 
-:warning: **This repository and all SHACL shapes are still under active development** :warning:
+This repository contains the configuration files for the [European Interoperability Test Bed](https://interoperable-europe.ec.europa.eu/collection/interoperability-test-bed-repository/solution/interoperability-test-bed). 
 
-This repository is used to provide SHACL shapes to verify Health-RI and FAIR Data Point RDF files.
+The rdf validator is available at <https://www.itb.ec.europa.eu/shacl/healthri/upload>.
 
-The validator itself is available at <https://www.itb.ec.europa.eu/shacl/healthri/upload>.
+:warning: **You can't use this service to validate metadata in an Fair Data Point**:warning:
 
 ## Development
 
