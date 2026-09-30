@@ -1,0 +1,14 @@
+validator/resources/healthri/config.properties
+  h_1f848e4d3a1ed2 5-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e4fdad05fab232bb7cd121899b017a7c2a5b7d32",
+  "prompts": {},
+  "humans": {
+    "h_1f848e4d3a1ed2": {
+      "author": "kburger <burger+github@gmail.com>"
+    }
+  }
+}
