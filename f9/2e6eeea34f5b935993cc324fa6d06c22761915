@@ -1,0 +1,23 @@
+validator/resources/healthri/config.properties
+  s_9eebe8769ca244::t_1635ce2038cc3c 1
+  s_9eebe8769ca244::t_4d128dfd753d20 4
+  s_9eebe8769ca244::t_92ec9cd5546f12 28-31
+README.md
+  s_9eebe8769ca244::t_9d35ee97ea221d 13,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f92e6eeea34f5b935993cc324fa6d06c22761915",
+  "prompts": {},
+  "sessions": {
+    "s_9eebe8769ca244": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "11eee630-6de9-40a4-8c5c-ccffab654d75",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "kburger <burger+github@gmail.com>"
+    }
+  }
+}
